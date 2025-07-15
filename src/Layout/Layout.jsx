@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Sidebar from "../Components/Sidebar";
 import Navbar from "../Components/Navbar";
 
-const AdminLayout = ({ children, title = "Admin Panel" }) => {
+const AdminLayout = ({ children, title = "Admin" }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [activeItem, setActiveItem] = useState("dashboard");
 
@@ -23,14 +23,6 @@ const AdminLayout = ({ children, title = "Admin Panel" }) => {
         title={title}
       />
 
-      {/* Mobile Overlay */}
-      {sidebarOpen && (
-        <div
-          className="fixed inset-0 z-40  md:hidden"
-          onClick={() => setSidebarOpen(false)}
-        ></div>
-      )}
-
       {/* Sidebar */}
       <Sidebar
         sidebarOpen={sidebarOpen}
@@ -40,9 +32,7 @@ const AdminLayout = ({ children, title = "Admin Panel" }) => {
       />
 
       {/* Main Content */}
-     <main
-        className={`pt-16 transition-all duration-300 w-full`}
-      >
+      <main className={`pt-16 w-full bg-blue-50`}>
         <div className="p-6">{children}</div>
       </main>
     </div>
